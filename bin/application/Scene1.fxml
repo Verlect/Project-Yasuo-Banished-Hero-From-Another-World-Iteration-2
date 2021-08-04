@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#next" prefHeight="703.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Scene1Controller">
+   <children>
+      <Label id="dialogue" layoutX="317.0" layoutY="558.0" prefHeight="127.0" prefWidth="652.0" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="dialogueText" layoutX="382.0" layoutY="564.0" prefHeight="115.0" prefWidth="557.0" text="Placeholder" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Courier New" size="26.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

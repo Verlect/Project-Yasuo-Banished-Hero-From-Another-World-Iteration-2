@@ -1,0 +1,10 @@
+#dialogue{
+	-fx-background-image: url("images/textbox1.png");
+	-fx-background-size: 650,110;
+	-fx-text-alignment: center;
+}
+
+.root{
+	-fx-background-image: url("images/castle.png");
+	-fx-background-size: 100%;
+}
