@@ -43,9 +43,9 @@ public class Scene1Controller extends Application{
 	}
 	
 	public void setDialogue() {
-		dialogueText.setText("\nPRESENT\n" + app.name + ": Where am I-");
+		dialogueText.setText("\nPRESENT\n" + app.user.getName()+ ": Where am I-");
 		dialogue.add("Unknown Summoner: Go now, smite thy hevonous wretch!");
-		dialogue.add(app.name + ": I-");
+		dialogue.add(app.user.getName() + ": I-");
 		dialogue.add("Unknown Summoner: Go now, grab that sword and fight!");
 	}
 	

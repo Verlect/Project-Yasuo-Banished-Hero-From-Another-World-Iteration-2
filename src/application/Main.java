@@ -1,6 +1,5 @@
 package application;
 	
-import java.awt.event.ActionEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,7 +14,7 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
 	FXMLLoader loader = new FXMLLoader();
 	Stage primaryStage;
-	String name = "";
+	User user = new User();
 	Pane root;
 	private void mainMenu() {
 		try {

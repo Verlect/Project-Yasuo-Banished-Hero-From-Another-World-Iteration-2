@@ -41,7 +41,7 @@ public class PrologueController extends Application{
 	}
 	
 	public void setDialogue() {
-		dialogueText.setText("PROLOGUE\n" + app.name + ", you're an aspiring computer scientist... ");
+		dialogueText.setText("PROLOGUE\n" + app.user.getName() + ", you're an aspiring computer scientist... ");
 		dialogue.add("who has been working hard this past week preparing for an upcoming coding entrance exam.");
 		dialogue.add("If you pass, you will be enrolled in the most prestigious university; Kinonatsu University of Coding and Technology.");
 		dialogue.add("Unfortunately, when the results came back, you find yourself to have failed miserably. ");

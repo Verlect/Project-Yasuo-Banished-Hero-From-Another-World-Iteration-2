@@ -11,7 +11,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Label fx:id="dialogueText" layoutX="382.0" layoutY="589.0" prefHeight="82.0" prefWidth="557.0" text="Placeholder" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="dialogueText" layoutX="366.0" layoutY="589.0" prefHeight="82.0" prefWidth="573.0" text="Placeholder" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Courier New" size="16.0" />
          </font>

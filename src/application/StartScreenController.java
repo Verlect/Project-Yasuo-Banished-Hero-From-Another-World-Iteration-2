@@ -40,8 +40,7 @@ public class StartScreenController extends Application{
 	
 	@FXML
 	public void submitName(ActionEvent event) {
-		app.name = name.getText();
-		System.out.println(app.name);
+		app.user.setName(name.getText()); 
 		
 		try {
 			root = (Pane)loader.load(new FileInputStream("src/fxml/Prologue.FXML"));
