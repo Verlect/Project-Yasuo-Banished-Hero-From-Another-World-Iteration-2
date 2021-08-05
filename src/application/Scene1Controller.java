@@ -62,9 +62,12 @@ public class Scene1Controller extends Application{
 		
 	}
 	public void createObstacles() {
-		Rectangle ob1 = new Rectangle(50,50,300,50); //Making new Obstacle and putting it in ArrayList
-	    ob1.setFill(Color.RED);  //Change to TRANSPARENT colour later
+		Rectangle ob1 = new Rectangle(409,221,140,482); //Making new Obstacle and putting it in ArrayList
+	    ob1.setFill(Color.TRANSPARENT);  //Change to TRANSPARENT colour later
 	    obstacles.add(ob1);
+	    Rectangle ob2 = new Rectangle(752,221,140,482);
+	    ob2.setFill(Color.TRANSPARENT); 
+	    obstacles.add(ob2);
 	}
 	
 	public ArrayList<Rectangle> getObstacleArrayList() {
@@ -72,7 +75,7 @@ public class Scene1Controller extends Application{
 	}
 	
 	public void createItems() {
-		Rectangle swordLocation = new Rectangle(400,200,50,50);
+		Rectangle swordLocation = new Rectangle(620,313,53,59);
 		swordLocation.setFill(Color.YELLOW);  //Cast to image with CSS later
 		Items IronSword = new Weapons(5,"Iron Sword","Deals 5 damage.",swordLocation);
 		items.add(IronSword);
@@ -89,7 +92,7 @@ public class Scene1Controller extends Application{
 	}
 	
 	public void createWarpPoints() {
-		Rectangle warp1 = new Rectangle(500,40,50,50);
+		Rectangle warp1 = new Rectangle(620,313,53,59);
 		warp1.setFill(Color.BROWN);
 		warpPoints.add(warp1);
 	}
@@ -107,6 +110,10 @@ public class Scene1Controller extends Application{
 	
 	public Pane getRoot() {
 		return root;
+	}
+	
+	public Stage getStage() {
+		return stage;
 	}
 	
 	public void next(KeyEvent event) {
@@ -129,6 +136,7 @@ public class Scene1Controller extends Application{
 				
 				
 				Scene scene = new Scene(root,1320,703);
+				scene.getStylesheets().add(getClass().getResource("Scene1.css").toExternalForm());
 				stage.setScene(scene);
 				stage.show();
 				scene.getRoot().requestFocus();

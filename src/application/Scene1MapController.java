@@ -1,15 +1,20 @@
 package application;
 
+import java.io.FileInputStream;
 import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-
+import javafx.stage.Stage;
+import javafx.scene.Node;
 public class Scene1MapController {
 
 	
@@ -26,6 +31,8 @@ public class Scene1MapController {
 	private Main app;
 	private Scene1Controller s1;
 	
+	private Stage stage;
+	private FXMLLoader loader = new FXMLLoader();
 	
 	
 	
@@ -43,28 +50,28 @@ public class Scene1MapController {
 		if (event.getCode()==KeyCode.A&& isCollision()){
 			player.setX(x-=10);
 			isItemPickup();
-			isWarp();
+			isWarp(event);
 			if(isCollision()==false) {player.setX(x+=10);}
 			System.out.println("A");
 		}
 		if (event.getCode()==KeyCode.D && isCollision()) {
 			player.setX(x+=10);
 			isItemPickup();
-			isWarp();
+			isWarp(event);
 			if(isCollision()==false) {player.setX(x-=10);}
 			System.out.println("D");
 		}
 		if (event.getCode()==KeyCode.W && isCollision()){
 			player.setY(y-=10);
 			isItemPickup();
-			isWarp();
+			isWarp(event);
 			if(isCollision()==false) {player.setY(y+=10);}
 			System.out.println("W");
 		}
 		if (event.getCode()==KeyCode.S && isCollision()){
 			player.setY(y+=10);
 			isItemPickup();
-			isWarp();
+			isWarp(event);
 			if(isCollision()==false) {player.setY(y-=10);}
 			System.out.println("S");
 		}
@@ -97,11 +104,24 @@ public class Scene1MapController {
 		}
 	}
 	
-	public void isWarp() {
+	public void isWarp(KeyEvent event) {
 		for (int i=0;i<warpPoints.size();i++) {
 			if (player.getBoundsInParent().intersects(warpPoints.get(i).getBoundsInParent())) {
+				try {
 				System.out.println("WARPING TIME");
 				//Insert new Root Scene Controller etc for next scene here
+				//s1.getStage().close();
+				Pane root = (Pane)loader.load(new FileInputStream("src/fxml/startScreen.FXML"));
+	            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+	            StartScreenController startScreen = loader.getController();
+	            startScreen.linkToApplication(this.app);
+	            Scene scene = new Scene(root,1320,703);
+	            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+	            scene.getStylesheets().add(getClass().getResource("buttonStart.css").toExternalForm());
+	            scene.getStylesheets().add(getClass().getResource("TextField.css").toExternalForm());
+	            stage.setScene(scene);
+	            stage.show();
+				} catch(Exception e){}
 				break;
 			}
 		}
