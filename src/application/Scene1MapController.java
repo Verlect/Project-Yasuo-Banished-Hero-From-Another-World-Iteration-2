@@ -21,6 +21,7 @@ public class Scene1MapController {
 	
 	private ArrayList<Rectangle> obstacles;
 	private ArrayList<Items> items;
+	private ArrayList<Rectangle> warpPoints;
 	
 	private Main app;
 	private Scene1Controller s1;
@@ -33,6 +34,7 @@ public class Scene1MapController {
 		this.s1 = s1;
 		obstacles=s1.getObstacleArrayList();
 		items = s1.getItemsArrayList();
+		warpPoints = s1.getWarpPointArrayList();
 		
 	}
 	
@@ -41,24 +43,28 @@ public class Scene1MapController {
 		if (event.getCode()==KeyCode.A&& isCollision()){
 			player.setX(x-=10);
 			isItemPickup();
+			isWarp();
 			if(isCollision()==false) {player.setX(x+=10);}
 			System.out.println("A");
 		}
 		if (event.getCode()==KeyCode.D && isCollision()) {
 			player.setX(x+=10);
 			isItemPickup();
+			isWarp();
 			if(isCollision()==false) {player.setX(x-=10);}
 			System.out.println("D");
 		}
 		if (event.getCode()==KeyCode.W && isCollision()){
 			player.setY(y-=10);
 			isItemPickup();
+			isWarp();
 			if(isCollision()==false) {player.setY(y+=10);}
 			System.out.println("W");
 		}
 		if (event.getCode()==KeyCode.S && isCollision()){
 			player.setY(y+=10);
 			isItemPickup();
+			isWarp();
 			if(isCollision()==false) {player.setY(y-=10);}
 			System.out.println("S");
 		}
@@ -88,6 +94,16 @@ public class Scene1MapController {
 				items.remove(i);
 			}
 	
+		}
+	}
+	
+	public void isWarp() {
+		for (int i=0;i<warpPoints.size();i++) {
+			if (player.getBoundsInParent().intersects(warpPoints.get(i).getBoundsInParent())) {
+				System.out.println("WARPING TIME");
+				//Insert new Root Scene Controller etc for next scene here
+				break;
+			}
 		}
 	}
 	

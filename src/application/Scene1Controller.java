@@ -28,6 +28,7 @@ public class Scene1Controller extends Application{
 	private FXMLLoader loader = new FXMLLoader();
 	private ArrayList<Rectangle> obstacles = new ArrayList<Rectangle>();//added from David's Implementation	
 	private ArrayList<Items> items = new ArrayList<Items>();
+	private ArrayList<Rectangle> warpPoints = new ArrayList<Rectangle>();
 	
 	@FXML
 	private Label dialogueText;
@@ -87,6 +88,23 @@ public class Scene1Controller extends Application{
 		return items;
 	}
 	
+	public void createWarpPoints() {
+		Rectangle warp1 = new Rectangle(500,40,50,50);
+		warp1.setFill(Color.BROWN);
+		warpPoints.add(warp1);
+	}
+	
+	public void loadWarpPoints() {
+		for (int i=0; i<warpPoints.size();i++) {
+			root.getChildren().add(warpPoints.get(i));
+		}
+	}
+	
+	public ArrayList<Rectangle> getWarpPointArrayList() {
+		return warpPoints;
+	}
+	
+	
 	public Pane getRoot() {
 		return root;
 	}
@@ -106,6 +124,9 @@ public class Scene1Controller extends Application{
 				loadObstacles();
 				createItems();
 				loadItems();
+				createWarpPoints();
+				loadWarpPoints();
+				
 				
 				Scene scene = new Scene(root,1320,703);
 				stage.setScene(scene);
