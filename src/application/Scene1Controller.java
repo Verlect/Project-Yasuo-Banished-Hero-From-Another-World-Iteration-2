@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -50,6 +51,23 @@ public class Scene1Controller extends Application{
 		dialogue.add("Unknown Summoner: Go now, grab that sword and fight!");
 	}
 	
+	
+	public void loadObstacles() {
+		for (int i=0; i<obstacles.size();i++) {
+			root.getChildren().add(obstacles.get(i));
+		}
+		
+	}
+	public void createObstacles() {
+		Rectangle ob1 = new Rectangle(50,50,300,50); //Making new Obstacle and putting it in ArrayList
+	    ob1.setFill(Color.RED);  //Change to TRANSPARENT colour later
+	    obstacles.add(ob1);
+	}
+	
+	public ArrayList<Rectangle> getObstacleArrayList() {
+		return obstacles;
+	}
+	
 	public void next(KeyEvent event) {
 		if (currentText < dialogue.size()) {
 			dialogueText.setText(dialogue.get(currentText));
@@ -61,15 +79,10 @@ public class Scene1Controller extends Application{
 				Scene1MapController map1 = loader.getController();
 				map1.linkToApplication(this.app, this);
 				
+				createObstacles();
+				loadObstacles();
 				
 				
-				
-				
-				
-				
-				
-				//MainMenusController startScreen = loader.getController();
-				//startScreen.linkToApplication(this.app);
 				Scene scene = new Scene(root,1320,703);
 				stage.setScene(scene);
 				stage.show();

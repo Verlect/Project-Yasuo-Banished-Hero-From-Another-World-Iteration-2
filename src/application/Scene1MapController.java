@@ -19,7 +19,7 @@ public class Scene1MapController {
 	private int y;
 	
 	
-	private ArrayList<Rectangle> obstacles = new ArrayList<Rectangle>();
+	private ArrayList<Rectangle> obstacles;
 	
 	private Main app;
 	private Scene1Controller s1;
@@ -29,29 +29,29 @@ public class Scene1MapController {
 	
 	public void linkToApplication(Main app, Scene1Controller s1) {
 		this.app = app;
-		//placeObstacles();
+		obstacles=s1.getObstacleArrayList();
 	}
 	
 	
 	public void movePlayer(KeyEvent event) {
 		if (event.getCode()==KeyCode.A&& isCollision()){
 			player.setX(x-=10);
-			//if(isCollision()==false) {character.setCenterX(x+=10);}
+			if(isCollision()==false) {player.setX(x+=10);}
 			System.out.println("A");
 		}
 		if (event.getCode()==KeyCode.D && isCollision()) {
 			player.setX(x+=10);
-			//if(isCollision()==false) {character.setCenterX(x-=10);}
+			if(isCollision()==false) {player.setX(x-=10);}
 			System.out.println("D");
 		}
 		if (event.getCode()==KeyCode.W && isCollision()){
 			player.setY(y-=10);
-			//if(isCollision()==false) {character.setCenterY(y+=10);}
+			if(isCollision()==false) {player.setY(y+=10);}
 			System.out.println("W");
 		}
 		if (event.getCode()==KeyCode.S && isCollision()){
 			player.setY(y+=10);
-			//if(isCollision()==false) {character.setCenterY(y-=10);}
+			if(isCollision()==false) {player.setY(y-=10);}
 			System.out.println("S");
 		}
 		
@@ -60,6 +60,14 @@ public class Scene1MapController {
 	
 	public boolean isCollision() {
 		boolean collision = true;
+		for (int i=0;i<obstacles.size();i++) {
+			if (player.getBoundsInParent().intersects(obstacles.get(i).getBoundsInParent())) {
+				System.out.println("Collision");
+				collision = false;
+				break;
+			}
+		}
+		
 		return collision;
 	}
 	
