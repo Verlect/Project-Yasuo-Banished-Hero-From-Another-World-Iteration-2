@@ -1,11 +1,14 @@
 package application;
 
+import javafx.scene.shape.Rectangle;
+
 public abstract class Items {
 	private int damage;
 	private int defense;
 	private int heal;
 	private String name;
 	private String description;
+	private Rectangle mapItem;
 	
 	public void setDamage(int damage)
 	{
@@ -28,6 +31,10 @@ public abstract class Items {
 		this.description = description;
 	}
 	
+	public void setMapItem(Rectangle mapItem) {
+		this.mapItem = mapItem;
+	}
+	
 	public int getHeal() {
 		return heal;
 	}
@@ -42,6 +49,11 @@ public abstract class Items {
 	
 	public int getDamage() {
 		return damage;
+	}
+	
+	public Rectangle getMapItem() {
+		System.out.println("God Why");
+		return mapItem;
 	}
 	
 }

@@ -26,7 +26,9 @@ public class Scene1Controller extends Application{
 	private Stage stage;
 	private Pane root;
 	private FXMLLoader loader = new FXMLLoader();
-	private ArrayList<Rectangle> obstacles = new ArrayList<Rectangle>();  //added from David's Implementation	
+	private ArrayList<Rectangle> obstacles = new ArrayList<Rectangle>();//added from David's Implementation	
+	private ArrayList<Items> items = new ArrayList<Items>();
+	
 	@FXML
 	private Label dialogueText;
 	
@@ -68,6 +70,27 @@ public class Scene1Controller extends Application{
 		return obstacles;
 	}
 	
+	public void createItems() {
+		Rectangle swordLocation = new Rectangle(400,200,50,50);
+		swordLocation.setFill(Color.YELLOW);  //Cast to image with CSS later
+		Items IronSword = new Weapons(5,"Iron Sword","Deals 5 damage.",swordLocation);
+		items.add(IronSword);
+	}
+	
+	public void loadItems() {
+		for (int i=0; i<items.size();i++) {
+			root.getChildren().add(items.get(i).getMapItem());
+		}
+	}
+	
+	public ArrayList<Items> getItemsArrayList() {
+		return items;
+	}
+	
+	public Pane getRoot() {
+		return root;
+	}
+	
 	public void next(KeyEvent event) {
 		if (currentText < dialogue.size()) {
 			dialogueText.setText(dialogue.get(currentText));
@@ -81,7 +104,8 @@ public class Scene1Controller extends Application{
 				
 				createObstacles();
 				loadObstacles();
-				
+				createItems();
+				loadItems();
 				
 				Scene scene = new Scene(root,1320,703);
 				stage.setScene(scene);
