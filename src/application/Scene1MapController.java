@@ -3,6 +3,8 @@ package application;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 
+import javax.print.attribute.standard.Media;
+
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +34,7 @@ public class Scene1MapController {
 	private Scene1Controller s1;
 	
 	private Stage stage;
+	private Scene scene;
 	private FXMLLoader loader = new FXMLLoader();
 	
 	
@@ -111,20 +114,30 @@ public class Scene1MapController {
 				System.out.println("WARPING TIME");
 				//Insert new Root Scene Controller etc for next scene here
 				//s1.getStage().close();
-				Pane root = (Pane)loader.load(new FileInputStream("src/fxml/startScreen.FXML"));
+				Pane root = (Pane)loader.load(new FileInputStream("src/fxml/Scene2.FXML"));
 	            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-	            StartScreenController startScreen = loader.getController();
-	            startScreen.linkToApplication(this.app);
-	            Scene scene = new Scene(root,1320,703);
-	            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-	            scene.getStylesheets().add(getClass().getResource("buttonStart.css").toExternalForm());
-	            scene.getStylesheets().add(getClass().getResource("TextField.css").toExternalForm());
+	            Scene2Controller Scene2 = loader.getController();
+	            Scene2.linkToApplication(this.app,this);
+	            Scene2.addDialogue();
+	        
+	 
+	            scene = new Scene(root,1320,703,Color.BLACK);
+	            scene.getStylesheets().add(getClass().getResource("Scene1.css").toExternalForm());
+	            //scene.getStylesheets().add(getClass().getResource("buttonStart.css").toExternalForm());
+	            //scene.getStylesheets().add(getClass().getResource("TextField.css").toExternalForm());
+	            //scene.setFill(Color.BLACK);
+	            
 	            stage.setScene(scene);
 	            stage.show();
+	            scene.getRoot().requestFocus();
 				} catch(Exception e){}
 				break;
 			}
 		}
+	}
+	
+	public Scene getScene() {
+		return scene;
 	}
 	
 }
