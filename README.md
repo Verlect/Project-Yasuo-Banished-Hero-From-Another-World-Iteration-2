@@ -3,6 +3,6 @@
 For this iteration, we have split our project split into three branchs. The main consists of our finished product and the branches with our names consists of what we worked on.
 Some classes are duplicates of the other branch as we worked on them together. 
 
-Currenly, due to time, we do not have any documentation, we will add documentation by the final iteration.
+Currenly, due to time, we do not have any documentation, we will add documentation by the final iteration. The code may be a bit messy at the moment, we will organize them for the final iteration.
 
 We give credit to the original creators of the artwork and music and will reference all of them by the last iteration in the credits scene.
