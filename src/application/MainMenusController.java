@@ -4,6 +4,8 @@ package application;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -13,14 +15,17 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import model.*;
 
 public class MainMenusController extends Application{
 	private Main app;
 	private Stage stage;
-	private Scene scene;
-	private Pane root;
 	private FXMLLoader loader = new FXMLLoader();
+	MediaPlayer musicData = new MediaPlayer(new Media(Paths.get("src/sounds/mainMenu.mp3").toUri().toString()));
 	
 	@FXML
 	private Button startButton;
@@ -39,6 +44,12 @@ public class MainMenusController extends Application{
 	public void linkToApplication(Main app) {
 		this.app = app;
 		stage = app.primaryStage;
+		ArrayList<Ability> temp = this.app.user.getAbility();
+		temp = new ArrayList<Ability>();
+		ArrayList<Items> temp2 = this.app.user.getItems();
+		temp2 = new ArrayList<Items>();
+		musicData.setCycleCount(MediaPlayer.INDEFINITE);
+		musicData.play();
 	}
 	
 	@FXML
@@ -52,7 +63,7 @@ public class MainMenusController extends Application{
 			Pane root = (Pane)loader.load(new FileInputStream("src/fxml/startScreen.FXML"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			StartScreenController startScreen = loader.getController();
-			startScreen.linkToApplication(this.app);
+			startScreen.linkToApplication(this.app, musicData);
 			Scene scene = new Scene(root,1320,703);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			scene.getStylesheets().add(getClass().getResource("buttonStart.css").toExternalForm());

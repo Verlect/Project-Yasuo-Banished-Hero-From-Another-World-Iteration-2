@@ -1,0 +1,26 @@
+#turn{
+	
+}
+
+.root{
+	-fx-background-image:url("images/castle.png");
+	-fx-background-size: 100%;
+}
+
+.button:pressed {
+    -fx-text-fill: rgb(0, 0, 0);
+}
+
+.button{
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-font-family:"Courier New", Helvetica, Arial, sans-serif;
+    -fx-font-size: 1em; /* 12 */
+    -fx-text-fill: rgb(255, 255, 255);
+}
+
+#attackMenu{
+	-fx-background-color:  rgb(0, 0, 0);
+}

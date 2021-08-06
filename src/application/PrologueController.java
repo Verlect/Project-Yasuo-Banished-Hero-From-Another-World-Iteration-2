@@ -26,9 +26,6 @@ public class PrologueController extends Application{
 	@FXML
 	private Label dialogueText;
 	
-	@FXML
-	private Button nextButton;
-	
 	ArrayList<String> dialogue = new ArrayList<String>();
  	
 

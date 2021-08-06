@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class StartScreenController extends Application{
@@ -21,6 +22,7 @@ public class StartScreenController extends Application{
 	private Scene scene;
 	private Pane root;
 	private FXMLLoader loader = new FXMLLoader();
+	private MediaPlayer mainMenuMusic;
 	
 	@FXML
 	private TextField name;
@@ -34,15 +36,18 @@ public class StartScreenController extends Application{
 		
 	}
 	
-	public void linkToApplication(Main app) {
+	public void linkToApplication(Main app, MediaPlayer mainMenu) {
 		this.app = app;
+		this.mainMenuMusic = mainMenu;
 	}
 	
 	@FXML
 	public void submitName(ActionEvent event) {
 		app.user.setName(name.getText()); 
 		
+		
 		try {
+			this.mainMenuMusic.pause();
 			root = (Pane)loader.load(new FileInputStream("src/fxml/Prologue.FXML"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			PrologueController prologuecontroller = loader.getController();
@@ -59,9 +64,5 @@ public class StartScreenController extends Application{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	
-	public void Scene1() {
-		
 	}
 }
