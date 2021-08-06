@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#movePlayer" prefHeight="703.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Scene2MapController">
+   <children>
+      <ImageView fx:id="player" fitHeight="105.0" fitWidth="79.0" layoutX="1103.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</Pane>
