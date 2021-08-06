@@ -56,12 +56,9 @@ public class Scene2Controller {
 		
 	}
 	public void createObstacles() {
-		Rectangle ob1 = new Rectangle(409,221,140,482); //Making new Obstacle and putting it in ArrayList
-	    ob1.setFill(Color.TRANSPARENT);  //Change to TRANSPARENT colour later
+		Rectangle ob1 = new Rectangle(6,7,1311,93); //Making new Obstacle and putting it in ArrayList
+	    ob1.setFill(Color.TRANSPARENT);  
 	    obstacles.add(ob1);
-	    Rectangle ob2 = new Rectangle(752,221,140,482);
-	    ob2.setFill(Color.TRANSPARENT); 
-	    obstacles.add(ob2);
 	}
 	
 	public ArrayList<Rectangle> getObstacleArrayList() {
@@ -86,7 +83,7 @@ public class Scene2Controller {
 	}
 	
 	public void createWarpPoints() {
-		Rectangle warp1 = new Rectangle(620,313,53,59);
+		Rectangle warp1 = new Rectangle(210,100,72,93);
 		warp1.setFill(Color.BROWN);
 		warpPoints.add(warp1);
 	}
@@ -125,8 +122,6 @@ public class Scene2Controller {
 			eventCounter++;
 		}
 		else {
-			System.out.println("Hello");
-			//callScene2 Map here
 			try {
 				System.out.println(1);
 				root = (Pane)loader.load(new FileInputStream("src/fxml/Scene2Map.FXML"));
@@ -137,12 +132,12 @@ public class Scene2Controller {
 				System.out.println(4);
 				map1.linkToApplication(this.app, this);
 				System.out.println(5);
-				//createObstacles();
-				//loadObstacles();
+				createObstacles();
+				loadObstacles();
 				createItems();
 				loadItems();
-				//createWarpPoints();
-				//loadWarpPoints();
+				createWarpPoints();
+				loadWarpPoints();
 				
 				
 				Scene scene = new Scene(root,1320,703);

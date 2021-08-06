@@ -32,9 +32,9 @@ public class Scene2MapController {
 	public void linkToApplication(Main app, Scene2Controller s2) {
 		this.app = app;
 		this.s2 = s2;
-		//obstacles=s2.getObstacleArrayList();
+		obstacles=s2.getObstacleArrayList();
 		items = s2.getItemsArrayList();
-		//warpPoints = s2.getWarpPointArrayList();
+		warpPoints = s2.getWarpPointArrayList();
 		
 	}
 	
@@ -43,28 +43,28 @@ public class Scene2MapController {
 		if (event.getCode()==KeyCode.A&& isCollision()){
 			player.setX(x-=10);
 			isItemPickup();
-			//isWarp(event);
+			isWarp(event);
 			if(isCollision()==false) {player.setX(x+=10);}
 			System.out.println("A");
 		}
 		if (event.getCode()==KeyCode.D && isCollision()) {
 			player.setX(x+=10);
 			isItemPickup();
-			//isWarp(event);
+			isWarp(event);
 			if(isCollision()==false) {player.setX(x-=10);}
 			System.out.println("D");
 		}
 		if (event.getCode()==KeyCode.W && isCollision()){
 			player.setY(y-=10);
 			isItemPickup();
-			//isWarp(event);
+			isWarp(event);
 			if(isCollision()==false) {player.setY(y+=10);}
 			System.out.println("W");
 		}
 		if (event.getCode()==KeyCode.S && isCollision()){
 			player.setY(y+=10);
 			isItemPickup();
-			//isWarp(event);
+			isWarp(event);
 			if(isCollision()==false) {player.setY(y-=10);}
 			System.out.println("S");
 		}
@@ -97,7 +97,14 @@ public class Scene2MapController {
 		}
 	}
 	
-	
+	public void isWarp(KeyEvent event) {
+		for (int i=0;i<warpPoints.size();i++) {
+			if (player.getBoundsInParent().intersects(warpPoints.get(i).getBoundsInParent())) {
+				System.out.println("HelloDude");
+				//Input next battle/scene integration here
+			}
+		}
+	}
 	
 	
 	

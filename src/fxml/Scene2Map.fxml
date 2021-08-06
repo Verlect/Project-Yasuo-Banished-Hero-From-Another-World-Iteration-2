@@ -4,8 +4,8 @@
 <?import javafx.scene.shape.Rectangle?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Scene2MapController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#movePlayer" prefHeight="703.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Scene2MapController">
    <children>
-      <Rectangle fx:id="player" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="73.0" layoutX="1138.0" layoutY="446.0" stroke="BLACK" strokeType="INSIDE" width="80.0" />
+      <Rectangle fx:id="player" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="78.0" layoutX="1138.0" layoutY="446.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
    </children>
 </Pane>
