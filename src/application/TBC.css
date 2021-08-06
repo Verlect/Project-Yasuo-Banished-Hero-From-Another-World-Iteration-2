@@ -1,0 +1,17 @@
+.button:pressed {
+    -fx-text-fill: rgb(255, 0, 0);
+}
+
+.button{
+    order-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-font-family:"Courier New", Helvetica, Arial, sans-serif;
+    -fx-font-size: 3em; /* 12 */
+    -fx-text-fill: rgb(0, 0, 0);
+}
+
+.root{
+	-fx-background-color: rgb(255, 255, 255);
+}
