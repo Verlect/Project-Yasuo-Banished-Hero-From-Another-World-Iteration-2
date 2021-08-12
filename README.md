@@ -11,12 +11,21 @@ Credits:
 Backdrop Fight Scene 2 - OctoPath Traveler, Square Enix
 
 Scene 2 cave music and fight music - OctoPath Travelerm Sqaure Enix
+
 Scene 1 Music - Fire Emblem Three Heroes, Nintendo
+
 Main Menu Music - League Of Legends
+
 Prologue Music - Genshin Impact
+
 Main Menu Image - Sarah Thompson
+
 Dark Ghost - Pixel Art Gallery
+
 Castle - Klemens Wöhrer
+
 Falling - Alice In Wonderland
+
 TextField - Pukahuna
+
 University - Tomasino
