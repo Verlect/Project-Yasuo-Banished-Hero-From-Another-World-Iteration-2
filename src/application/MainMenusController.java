@@ -1,3 +1,8 @@
+/*
+ * Project Name: Project Yasuo Banished Hero From Another Hero
+ * Author: Bismarck Leung, David Tran
+ */
+
 package application;
 
 
@@ -41,6 +46,11 @@ public class MainMenusController extends Application{
 		
 	}
 	
+	/**
+	 * Initiates the class and sets the main app to be the main class. 
+	 * Also starts the music.
+	 * @param app
+	 */
 	public void linkToApplication(Main app) {
 		this.app = app;
 		stage = app.primaryStage;
@@ -50,11 +60,19 @@ public class MainMenusController extends Application{
 		musicData.play();
 	}
 	
+	/**
+	 * Quits and closes the program and window
+	 */
 	@FXML
 	public void quit() {
 		stage.close();
 	}
 	
+	/**
+	 * Moves onto the startscreen where the user will be able to input their name
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void startScreen(ActionEvent event) throws IOException{
 		try {

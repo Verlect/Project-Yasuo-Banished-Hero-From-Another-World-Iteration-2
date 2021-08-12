@@ -1,3 +1,7 @@
+/*
+ * Project Name: Project Yasuo Banished Hero From Another Hero
+ * Author: Bismarck Leung, David Tran
+ */
 package application;
 
 import java.io.FileInputStream;

@@ -1,5 +1,10 @@
+/*
+ * Project Name: Project Yasuo Banished Hero From Another Hero
+ * Author: Bismarck Leung, David Tran
+ */
+
 package application;
- 	
+	
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,6 +22,10 @@ public class Main extends Application {
 	Stage primaryStage;
 	User user = new User();
 	Pane root;
+	
+	/**
+	 * Initiates the mainMenu screen and will allow the game to start
+	 */
 	private void mainMenu() {
 		try {
 			Pane root = (Pane)loader.load(new FileInputStream("src/fxml/MainMenu.FXML"));
@@ -36,13 +45,19 @@ public class Main extends Application {
 	}
 	
 	
-	
+	/**
+	 *Starts the program and sets the stage
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		mainMenu();
 	}
 	
+	/**
+	 * Starts the program
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}

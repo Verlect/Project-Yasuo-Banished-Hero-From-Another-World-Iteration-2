@@ -1,3 +1,8 @@
+/*
+ * Project Name: Project Yasuo Banished Hero From Another Hero
+ * Author: Bismarck Leung, David Tran
+ */
+
 package application;
 
 import java.io.FileInputStream;
@@ -36,11 +41,22 @@ public class StartScreenController extends Application{
 		
 	}
 	
+	/**
+	 * Inititates the function and sets the Main application and mediaplayer instance
+	 * variables
+	 * @param app
+	 * @param mainMenu
+	 */
 	public void linkToApplication(Main app, MediaPlayer mainMenu) {
 		this.app = app;
 		this.mainMenuMusic = mainMenu;
 	}
 	
+	/**
+	 * This is where the user will be able to set the name of their character
+	 * and will load the next scene after.
+	 * @param event
+	 */
 	@FXML
 	public void submitName(ActionEvent event) {
 		app.user.setName(name.getText()); 

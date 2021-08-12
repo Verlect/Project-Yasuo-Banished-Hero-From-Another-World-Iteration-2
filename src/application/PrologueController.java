@@ -1,3 +1,8 @@
+/*
+ * Project Name: Project Yasuo Banished Hero From Another Hero
+ * Author: Bismarck Leung, David Tran
+ */
+
 package application;
 
 import java.io.FileInputStream;
@@ -37,12 +42,20 @@ public class PrologueController extends Application{
 	public void start(Stage arg0) throws Exception {
 		// TODO Auto-generated method stub
 	}
+	
+	/**
+	 * Initiates the program and starts playing the music
+	 * @param app
+	 */
 	public void linkToApplication(Main app) {
 		this.app = app;
 		musicData.setCycleCount(MediaPlayer.INDEFINITE);
 		musicData.play();
 	}
 	
+	/**
+	 * Initiates the dialogue for the scene
+	 */
 	public void setDialogue() {
 		dialogueText.setText("PROLOGUE\n" + app.user.getName() + ", you're an aspiring computer scientist... ");
 		dialogue.add("who has been working hard this past week preparing for an upcoming coding entrance exam.");
@@ -55,6 +68,11 @@ public class PrologueController extends Application{
 		dialogue.add("When you came to, you realized you were no longer in your bedroom… You weren’t too sure where you were at all..");
 	}
 	
+	/**
+	 * Check if there is more dialouge, if there is, then display it,
+	 * if not, then move onto the next scene
+	 * @param event
+	 */
 	public void next(KeyEvent event) {
 		if (currentText < dialogue.size()) {
 			dialogueText.setText(dialogue.get(currentText));

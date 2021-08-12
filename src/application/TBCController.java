@@ -1,3 +1,7 @@
+/*
+ * Project Name: Project Yasuo Banished Hero From Another Hero
+ * Author: Bismarck Leung, David Tran
+ */
 package application;
 
 import java.io.FileInputStream;
@@ -38,6 +42,11 @@ public class TBCController extends Application{
 		
 	}
 	
+	/**
+	 * Initiates the class and plays the music
+	 * @param app
+	 * @throws FileNotFoundException
+	 */
 	public void linkToApplication(Main app) throws FileNotFoundException {
 		this.app = app;
 		Image image = new Image(new FileInputStream("src/application/images/TBC.png"));
@@ -46,6 +55,12 @@ public class TBCController extends Application{
 		musicData.play();
 	}
 	
+	/**
+	 * returns the player back to the main menu
+	 * @param event
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	@FXML
 	public void returnMain(ActionEvent event) throws FileNotFoundException, IOException {
 		musicData.pause();

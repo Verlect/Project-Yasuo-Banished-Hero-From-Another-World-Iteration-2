@@ -1,3 +1,8 @@
+/*
+ * Project Name: Project Yasuo Banished Hero From Another Hero
+ * Author: Bismarck Leung, David Tran
+ */
+
 package application;
 
 import java.io.FileInputStream;
@@ -38,6 +43,12 @@ public class DeathController extends Application{
 		
 	}
 	
+	/**
+	 * Links the scene to the original application class and also starts the music
+	 * for the scene.
+	 * @param app
+	 * @throws FileNotFoundException
+	 */
 	public void linkToApplication(Main app) throws FileNotFoundException {
 		this.app = app;
 		Image image = new Image(new FileInputStream("src/application/images/death.png"));
@@ -46,6 +57,13 @@ public class DeathController extends Application{
 		musicData.play();
 	}
 	
+	/**
+	 * When the return to main menu button is clicked, return to the main
+	 * menu scene and class.
+	 * @param event
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	@FXML
 	public void returnMain(ActionEvent event) throws FileNotFoundException, IOException {
 		musicData.pause();

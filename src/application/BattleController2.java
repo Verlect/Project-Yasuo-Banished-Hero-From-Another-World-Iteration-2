@@ -1,3 +1,8 @@
+/*
+ * Project Name: Project Yasuo Banished Hero From Another Hero
+ * Author: Bismarck Leung, David Tran
+ */
+
 package application;
 
 import java.io.FileInputStream;
@@ -88,6 +93,16 @@ public class BattleController2 extends Application{
 		// TODO Auto-generated method stub
 	}
 	
+	/**
+	 * Initiates the class and sets the class instance variable for the battle scene
+	 * Creates the interface for the battle scene, such as the buttons for the items and abilities.
+	 * @param user
+	 * @param enemy
+	 * @param nextScene
+	 * @param scenePath
+	 * @param cssFiles
+	 * @throws FileNotFoundException
+	 */
 	public void initiate(User user, Enemies enemy, int nextScene, String scenePath, ArrayList<String> cssFiles) throws FileNotFoundException {
 		this.enemyEntity = enemy;
 		this.user = user;
@@ -99,6 +114,7 @@ public class BattleController2 extends Application{
 		musicData.play();
 		
 		ArrayList<Items> items = user.getItems();
+		items.clear();
 		ArrayList<Ability> ability = user.getAbility();
 		items.add(new Potions(10, "Water Bottle (Diluted)", "Heals for 10 health"));
 		ability.add(new Ability("Short Shock", "Stuns for 2 turns", 10, 2));
@@ -198,11 +214,19 @@ public class BattleController2 extends Application{
 		}
 	}
 
+	/**
+	 * Links the class with the original application class
+	 * @param app
+	 */
 	public void linkToApplication(Main app) {
 		// TODO Auto-generated method stub
 		this.app = app;
 	}
 	
+	/**
+	 * Checks if the user is stun, if user is stunned, it will go through enemy turns
+	 * until it is not.
+	 */
 	private void stunCheck() {
 		int stunCount = 0;
 		while (playerStun > 0) {
@@ -214,6 +238,10 @@ public class BattleController2 extends Application{
 		}
 	}
 	
+	/**
+	 * This simulates the enemy turn and deals damage and applies a stun to the player
+	 * when nessesary
+	 */
 	private void enemyTurn() {
 		if (enemyStun == 0) {
 			int end = random.nextInt(this.enemyEntity.getDamage()+1);
@@ -232,7 +260,14 @@ public class BattleController2 extends Application{
 		}
 	}
 	
-	
+	/**
+	 * Checks if the player or enemy has 0 health, if player dies, 
+	 * moves on to death scene (unless its scene 1), if player wins, 
+	 * move on to next scene (unless in scene 1).
+	 * @param event
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	private void isDeath(ActionEvent event) throws FileNotFoundException, IOException {
 		
 		if (this.user.getHealth() <= 0 && scene1 == 0) {
@@ -262,6 +297,10 @@ public class BattleController2 extends Application{
 		}
 	}
 	
+	/**
+	 * Sets the scene 1 map controller for use in the battle
+	 * @param copy
+	 */
 	public void setMap1(Scene1MapController copy) {
 		this.map1Control = copy;
 	}
