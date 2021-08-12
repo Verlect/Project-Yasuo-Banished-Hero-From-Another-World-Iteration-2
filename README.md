@@ -10,7 +10,7 @@ We give credit to the original creators of the artwork and music and will refere
 Credits:
 Backdrop Fight Scene 2 - OctoPath Traveler, Square Enix
 
-Scene 2 cave music and fight music - OctoPath Travelerm Sqaure Enix
+Scene 2 cave music and fight music - OctoPath Traveler Sqaure Enix
 
 Scene 1 Music - Fire Emblem Three Heroes, Nintendo
 
