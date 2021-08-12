@@ -44,6 +44,12 @@ public class Scene2Controller {
 	private ArrayList<Items> items = new ArrayList<Items>();
 	private ArrayList<Rectangle> warpPoints = new ArrayList<Rectangle>();
 	
+	/**
+	 * Takes an instance of Main and have app reference it.
+	 * Takes an instance of BattleController and have lastScene reference it.
+	 * @param app
+	 * @param lastScene
+	 */
 	public void linkToApplication(Main app, BattleController lastScene) { //change "Scene1MapController" to the class of last scene.
 		this.app = app;
 		this.lastScene = lastScene;
@@ -52,18 +58,28 @@ public class Scene2Controller {
 	}
 	
 	
+	/**
+	 * Sets initial text for dialogue box and then adds subsequent text to dialogue instance variable.
+	 */
 	public void addDialogue() {
 		textBox.setText("Unknown Summoner: Blasphemy, how can the mandate of celestia be bound by such weakness? I’ll handle this myself…. ");
 		dialogue.add("[Unknown Summoner casts Chaos Dark Flames and kills the Wicked Horror]");
 		dialogue.add("Unknown Summoner: One has no use for nugatory subortanants among one’s ranks. Guards, cast this one off the Cliffs of Sacred Tears");
 	}
 	
+	/**
+	 * Takes all Rectangle in obstacles instance variable and adds their nodes into root.
+	 */
 	public void loadObstacles() {
 		for (int i=0; i<obstacles.size();i++) {
 			root.getChildren().add(obstacles.get(i));
 		}
 		
 	}
+	
+	/**
+	 * Creates Rectangle objects and appends them to obstacles array list. 
+	 */
 	public void createObstacles() {
 		
 		obstacles.add(new Rectangle(6,7,1311,93));
@@ -83,10 +99,17 @@ public class Scene2Controller {
 		}
 	}
 	
+	/**
+	 * @return obstacles
+	 */
 	public ArrayList<Rectangle> getObstacleArrayList() {
 		return obstacles;
 	}
 	
+	/**
+	 * Creates Items objects and appends to items arraylist.
+	 * @throws FileNotFoundException
+	 */
 	public void createItems() throws FileNotFoundException {
 		ImageView MagicalWoodenSwordLocation = new ImageView();
 		MagicalWoodenSwordLocation.setPreserveRatio(true);
@@ -100,40 +123,69 @@ public class Scene2Controller {
 		items.add(MagicalWoodenSword);
 	}
 	
+	/**
+	 * For all the objects in items, their ImageView gets added as a node to root.
+	 */
 	public void loadItems() {
 		for (int i=0; i<items.size();i++) {
 			root.getChildren().add(items.get(i).getMapItem());
 		}
 	}
 	
+	/**
+	 * @return items
+	 */
 	public ArrayList<Items> getItemsArrayList() {
 		return items;
 	}
 	
+	/**
+	 * Creates Rectangle objects and appends them to warpPoints array list.
+	 */
 	public void createWarpPoints() {
 		Rectangle warp1 = new Rectangle(210,100,72,93);
 		warp1.setFill(Color.TRANSPARENT);
 		warpPoints.add(warp1);
 	}
 	
+	
+	/**
+	 * Takes all Rectangle in warpPoints instance variable and adds their nodes into root.
+	 */
 	public void loadWarpPoints() {
 		for (int i=0; i<warpPoints.size();i++) {
 			root.getChildren().add(warpPoints.get(i));
 		}
 	}
 	
+	/**
+	 * @return warpPoints
+	 */
 	public ArrayList<Rectangle> getWarpPointArrayList() {
 		return warpPoints;
 	}
 	
-	
+	/**
+	 * 
+	 * @return root
+	 */
 	public Pane getRoot() {
 		return root;
 	}
 	
+	/**
+	 * 
+	 * @return stage
+	 */
 	public Stage getStage() {
 		return stage;
 	}
+	
+	/**
+	 * Takes in a KeyEvent, and updates the label with given dialogue.
+	 * When there is no more dialogue, next scene is called.
+	 * @param event
+	 */
 	public void next(KeyEvent event) {
 		if (textCounter<dialogue.size()) {
 			textBox.setText(dialogue.get(textCounter));

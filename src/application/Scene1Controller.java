@@ -63,6 +63,7 @@ public class Scene1Controller extends Application{
 		musicData.setCycleCount(MediaPlayer.INDEFINITE);
 		musicData.play();
 	}
+	
 	/**
 	 * Sets initial text for dialogue box and then adds subsequent text to dialogue instance variable.
 	 */
