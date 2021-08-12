@@ -47,7 +47,15 @@ public class Scene1MapController {
 	Scene2Controller scene2 = loader.getController();
 	
 	
-	
+	/**
+	 * Takes an instance of Main and have app reference it.
+	 * Takes an instance of Scene1Controller and have s1 reference it.
+	 * Takes an instance of MediaPlayer and have media reference it.
+	 * @param app
+	 * @param s1
+	 * @param media
+	 * @throws FileNotFoundException
+	 */
 	public void linkToApplication(Main app, Scene1Controller s1, MediaPlayer media) throws FileNotFoundException {
 		this.app = app;
 		this.s1 = s1;
@@ -60,6 +68,12 @@ public class Scene1MapController {
 	}
 	
 	
+	/**
+	 * Takes KeyEvent as parameter. Moves character based on which key is pressed.
+	 * @param event
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public void movePlayer(KeyEvent event) {
 		if (event.getCode()==KeyCode.A&& isCollision()){
 			player.setX(x-=10);
@@ -88,7 +102,10 @@ public class Scene1MapController {
 		
 	}
 	
-	
+	/**
+	 * Detects if the player is colliding with and obstacle.
+	 * @return True if there is no collision and False if there is.
+	 */
 	public boolean isCollision() {
 		boolean collision = true;
 		for (int i=0;i<obstacles.size();i++) {
@@ -101,6 +118,10 @@ public class Scene1MapController {
 		return collision;
 	}
 	
+	/**
+	 * Detects if the player is colliding with an item.
+	 * If player is colliding with an item, item's ImageView is removed from root and Item object is appended to user's items.
+	 */
 	public void isItemPickup() {
 		for (int i=0; i<items.size();i++) {
 			if (player.getBoundsInParent().intersects(items.get(i).getMapItem().getBoundsInParent())) {
@@ -112,6 +133,13 @@ public class Scene1MapController {
 		}
 	}
 	
+	/**
+	 * Detects if the player is colliding with a warpPoint.
+	 * If player is colliding with a warpPoint, new scene is called. 
+	 * @param event
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public void isWarp(KeyEvent event) {
 		for (int i=0;i<warpPoints.size();i++) {
 			if (player.getBoundsInParent().intersects(warpPoints.get(i).getBoundsInParent())) {
@@ -140,6 +168,10 @@ public class Scene1MapController {
 		}
 	}
 	
+	/**
+	 * 
+	 * @return scene
+	 */
 	public Scene getScene() {
 		return scene;
 	}
