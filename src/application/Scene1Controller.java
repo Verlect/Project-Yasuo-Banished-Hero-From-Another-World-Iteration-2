@@ -36,7 +36,7 @@ public class Scene1Controller extends Application{
 	private FXMLLoader loader = new FXMLLoader();
 	private ArrayList<Rectangle> obstacles = new ArrayList<Rectangle>();//added from David's Implementation	
 	private ArrayList<Items> items = new ArrayList<Items>();
-	private ArrayList<ImageView> warpPoints = new ArrayList<ImageView>();
+	private ArrayList<Rectangle> warpPoints = new ArrayList<Rectangle>();
 	private MediaPlayer musicData = new MediaPlayer(new Media(Paths.get("src/sounds/teleport.mp3").toUri().toString()));
 	
 	@FXML
@@ -73,25 +73,35 @@ public class Scene1Controller extends Application{
 		
 	}
 	public void createObstacles() {
-		Rectangle ob1 = new Rectangle(409,221,140,482); //Making new Obstacle and putting it in ArrayList
-	    ob1.setFill(Color.TRANSPARENT);  //Change to TRANSPARENT colour later
-	    obstacles.add(ob1);
-	    Rectangle ob2 = new Rectangle(752,221,140,482);
-	    ob2.setFill(Color.TRANSPARENT); 
-	    obstacles.add(ob2);
+	    
+	    obstacles.add(new Rectangle(409,221,140,482));
+	    obstacles.add(new Rectangle(752,221,140,482));
+	    obstacles.add(new Rectangle(251,24,803,199));
+	    obstacles.add(new Rectangle(405,677,488,25));
+	    
+	    for (int i=0; i<obstacles.size();i++) {
+			obstacles.get(i).setFill(Color.TRANSPARENT);
+		}
+	    
+	    
+	    
 	}
 	
 	public ArrayList<Rectangle> getObstacleArrayList() {
 		return obstacles;
 	}
 	
-	public void createItems() {
+	public void createItems() throws FileNotFoundException {
 		ImageView swordLocation = new ImageView();
+		Image image = new Image(new FileInputStream("src/application/images/ironsword.png"));
+		swordLocation.setImage(image);
 		swordLocation.setPreserveRatio(true);
-		swordLocation.setFitWidth(53);
-		swordLocation.setFitHeight(59);
+		swordLocation.setFitWidth(60);
+		swordLocation.setFitHeight(80);
 		swordLocation.setLayoutX(620);
-		swordLocation.setLayoutY(313);
+		swordLocation.setLayoutY(340);
+		
+		
 		Items IronSword = new Weapons(5,"Iron Sword","Deals 5 damage.",swordLocation);
 		items.add(IronSword);
 	}
@@ -107,16 +117,12 @@ public class Scene1Controller extends Application{
 	}
 	
 	public void createWarpPoints() throws FileNotFoundException {
-		ImageView sword = new ImageView();
-		Image image = new Image(new FileInputStream("src/application/images/ironsword.png"));
-		sword.setImage(image);
+
 		
-		sword.setPreserveRatio(true);
-		sword.setFitWidth(100);
-	    sword.setFitHeight(100);
-	    sword.setLayoutX(600);
-	    sword.setLayoutY(300);
-		warpPoints.add(sword);
+		Rectangle warpToBattle = new Rectangle(620,313,53,59);
+		warpToBattle.setFill(Color.TRANSPARENT); 
+		
+		warpPoints.add(warpToBattle);
 	}
 	
 	public void loadWarpPoints() {
@@ -125,7 +131,7 @@ public class Scene1Controller extends Application{
 		}
 	}
 	
-	public ArrayList<ImageView> getWarpPointArrayList() {
+	public ArrayList<Rectangle> getWarpPointArrayList() {
 		return warpPoints;
 	}
 	
@@ -151,11 +157,10 @@ public class Scene1Controller extends Application{
 				
 				createObstacles();
 				loadObstacles();
-				createItems();
-				loadItems();
 				createWarpPoints();
 				loadWarpPoints();
-				
+				createItems();
+				loadItems();
 				
 				Scene scene = new Scene(root,1320,703);
 				scene.getStylesheets().add(getClass().getResource("Scene1.css").toExternalForm());

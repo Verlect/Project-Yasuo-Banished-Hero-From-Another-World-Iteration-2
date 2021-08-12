@@ -85,7 +85,6 @@ public class Scene2MapController {
 		boolean collision = true;
 		for (int i=0;i<obstacles.size();i++) {
 			if (player.getBoundsInParent().intersects(obstacles.get(i).getBoundsInParent())) {
-				System.out.println("Collision");
 				collision = false;
 				break;
 			}

@@ -32,7 +32,7 @@ public class Scene1MapController {
 	
 	private ArrayList<Rectangle> obstacles;
 	private ArrayList<Items> items;
-	private ArrayList<ImageView> warpPoints;
+	private ArrayList<Rectangle> warpPoints;
 	
 	private Main app;
 	private Scene1Controller s1;

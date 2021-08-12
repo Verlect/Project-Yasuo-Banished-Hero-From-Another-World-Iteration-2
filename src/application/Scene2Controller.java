@@ -65,9 +65,22 @@ public class Scene2Controller {
 		
 	}
 	public void createObstacles() {
-		Rectangle ob1 = new Rectangle(6,7,1311,93); //Making new Obstacle and putting it in ArrayList
-	    ob1.setFill(Color.TRANSPARENT);  
-	    obstacles.add(ob1);
+		
+		obstacles.add(new Rectangle(6,7,1311,93));
+		obstacles.add(new Rectangle(334,136,283,153));
+		obstacles.add(new Rectangle(14,165,177,252));
+		obstacles.add(new Rectangle(14,612,364,77));
+		obstacles.add(new Rectangle(14,418,108,194));
+		obstacles.add(new Rectangle(1078,536,228,153));
+		obstacles.add(new Rectangle(1241,18,65,518));
+		obstacles.add(new Rectangle(923,18,155,163));
+		obstacles.add(new Rectangle(1013,576,65,113));
+		obstacles.add(new Rectangle(378,627,636,62));
+		
+		
+		for (int i=0; i<obstacles.size();i++) {
+			obstacles.get(i).setFill(Color.TRANSPARENT);
+		}
 	}
 	
 	public ArrayList<Rectangle> getObstacleArrayList() {
