@@ -52,12 +52,20 @@ public class Scene1Controller extends Application{
 	public void start(Stage arg0) throws Exception {
 		// TODO Auto-generated method stub
 	}
+	
+	
+	/**
+	 * Takes an instance of Main and have app reference it.
+	 * @param app
+	 */
 	public void linkToApplication(Main app) {
 		this.app = app;
 		musicData.setCycleCount(MediaPlayer.INDEFINITE);
 		musicData.play();
 	}
-	
+	/**
+	 * Sets initial text for dialogue box and then adds subsequent text to dialogue instance variable.
+	 */
 	public void setDialogue() {
 		dialogueText.setText("\nPRESENT\n" + app.user.getName()+ ": Where am I-");
 		dialogue.add("Unknown Summoner: Go now, smite thy hevonous wretch!");
@@ -65,13 +73,18 @@ public class Scene1Controller extends Application{
 		dialogue.add("Unknown Summoner: Go now, grab that sword and fight!");
 	}
 	
-	
+	/**
+	 * Takes all Rectangle in obstacles instance variable and adds their nodes into root.
+	 */
 	public void loadObstacles() {
 		for (int i=0; i<obstacles.size();i++) {
 			root.getChildren().add(obstacles.get(i));
 		}
 		
 	}
+	/**
+	 * Creates Rectangle objects and appends them to obstacles array list. 
+	 */
 	public void createObstacles() {
 	    
 	    obstacles.add(new Rectangle(409,221,140,482));
@@ -82,15 +95,21 @@ public class Scene1Controller extends Application{
 	    for (int i=0; i<obstacles.size();i++) {
 			obstacles.get(i).setFill(Color.TRANSPARENT);
 		}
-	    
-	    
-	    
+	      
 	}
 	
+	/**
+	 * @return obstacles
+	 */
 	public ArrayList<Rectangle> getObstacleArrayList() {
 		return obstacles;
 	}
 	
+	
+	/**
+	 * Creates Items objects and appends to items arraylist.
+	 * @throws FileNotFoundException
+	 */
 	public void createItems() throws FileNotFoundException {
 		ImageView swordLocation = new ImageView();
 		Image image = new Image(new FileInputStream("src/application/images/ironsword.png"));
@@ -106,44 +125,69 @@ public class Scene1Controller extends Application{
 		items.add(IronSword);
 	}
 	
+	/**
+	 * For all the objects in items, their ImageView gets added as a node to root.
+	 */
 	public void loadItems() {
 		for (int i=0; i<items.size();i++) {
 			root.getChildren().add(items.get(i).getMapItem());
 		}
 	}
 	
+	/**
+	 * @return items
+	 */
 	public ArrayList<Items> getItemsArrayList() {
 		return items;
 	}
 	
-	public void createWarpPoints() throws FileNotFoundException {
+	/**
+	 * Creates Rectangle objects and appends them to warpPoints array list.
+	 */
+	public void createWarpPoints() {
 
-		
 		Rectangle warpToBattle = new Rectangle(620,313,53,59);
 		warpToBattle.setFill(Color.TRANSPARENT); 
 		
 		warpPoints.add(warpToBattle);
 	}
 	
+	/**
+	 * Takes all Rectangle in warpPoints instance variable and adds their nodes into root.
+	 */
 	public void loadWarpPoints() {
 		for (int i=0; i<warpPoints.size();i++) {
 			root.getChildren().add(warpPoints.get(i));
 		}
 	}
 	
+	/**
+	 * @return warpPoints
+	 */
 	public ArrayList<Rectangle> getWarpPointArrayList() {
 		return warpPoints;
 	}
 	
-	
+	/**
+	 * @return root
+	 */
 	public Pane getRoot() {
 		return root;
 	}
 	
+	/**
+	 * 
+	 * @return stage
+	 */
 	public Stage getStage() {
 		return stage;
 	}
 	
+	/**
+	 * Takes in a KeyEvent, and updates the label with given dialogue.
+	 * When there is no more dialogue, next scene is called.
+	 * @param event
+	 */
 	public void next(KeyEvent event) {
 		if (currentText < dialogue.size()) {
 			dialogueText.setText(dialogue.get(currentText));
